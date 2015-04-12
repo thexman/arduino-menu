@@ -11,6 +11,11 @@ The GNU Lesser General Public License (LGPL)
 # Example:
 ```Arduino
 
+#include <Button.h>
+#include <LiquidCrystal.h>
+#include <menu.h>
+
+
 LiquidCrystal _lcd(13, 12, 6, 5, 4, 3);
 
 const int numRows = 2;
