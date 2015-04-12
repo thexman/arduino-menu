@@ -2,7 +2,7 @@
 Text menu library for Arduino. Shows text based menu on LCD display.
 
 # Requirements
-Requires [Button library][http://playground.arduino.cc/code/Button] 
+Requires [Button library](http://playground.arduino.cc/code/Button)
 
 # License
 The GNU Lesser General Public License (LGPL)

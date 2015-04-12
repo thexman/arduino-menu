@@ -1,5 +1,4 @@
 #include <Button.h>
-#include <EEPROM.h>
 #include <LiquidCrystal.h>
 #include "menu.h"
 
