@@ -121,13 +121,13 @@ void Menu::logInt(int v, bool newLine) {
 
 void Menu::init() {
 	if (isLogEnabled()) {
-		log("Entering Menu::init()");
+		log(F("Entering Menu::init()"));
 	}
 	t.save();
 	internals.currentIndex = 0;
 	lcdModified = true;
 	if (isLogEnabled()) {
-		log("Leaving Menu::init()");
+		log(F("Leaving Menu::init()"));
 	}
 }
 
@@ -139,17 +139,17 @@ void Menu::showCurrentMenu() {
 	internals.lcd.showString(internals.items[internals.currentIndex], 0);
 
 	if (isLogEnabled()) {
-		log("currentIndex=");
+		log(F("currentIndex="), false);
 		logInt(internals.currentIndex);
-		log("Leaving Menu::showCurrentMenu()");
+		log(F("Leaving Menu::showCurrentMenu()"));
 	}
 }
 
 void Menu::buttonUpDownClicked(int delta) {
 	if (isLogEnabled()) {
-		log("Entering Menu::buttonUpDownClicked(deta=", false);
+		log(F("Entering Menu::buttonUpDownClicked(deta="), false);
 		logInt(delta, false);
-		log(")");
+		log(F(")"));
 	}
 
 
@@ -164,11 +164,11 @@ void Menu::buttonUpDownClicked(int delta) {
 	}
 
 	if (isLogEnabled()) {
-		log("internals.currentIndex =", false);
+		log(F("internals.currentIndex ="), false);
 		logInt(internals.currentIndex);
-		log("Leaving Menu::buttonUpDownClicked(deta=", false);
+		log(F("Leaving Menu::buttonUpDownClicked(deta="), false);
 		logInt(delta, false);
-		log(")");
+		log(F(")"));
 	}
 }
 
@@ -176,21 +176,21 @@ Menu::Menu(Logger& logger, TimeProvider &tp, Lcd &lcd, Button &btnUp, Button &bt
 		t(tp), internals(logger, lcd, btnUp, btnDown, btnMenu, menuItems, menuItemsCount, timeoutSeconds, menuItemsCallbacks, customData) {
 
 	if (isLogEnabled()) {
-		log("Entering Menu::Menu");
+		log(F("Entering Menu::Menu"));
 	}
 
 	init();
 	numberOfCallbacks = 0;
 
 	if (isLogEnabled()) {
-		log("Leaving Menu::Menu");
+		log(F("Leaving Menu::Menu"));
 	}
 }
 
 Menu::Menu(Logger& logger, TimeProvider &tp, Lcd &lcd, Button &btnUp, Button &btnDown, Button &btnMenu, String* menuItems, int menuItemsCount, int timeoutSeconds, void* customData, int numberOfCallbacks...) : t(tp), internals(logger, lcd, btnUp, btnDown, btnMenu, menuItems, menuItemsCount, timeoutSeconds, NULL, customData) {
 
 	if (isLogEnabled()) {
-		log("Entering Menu::Menu");
+		log(F("Entering Menu::Menu"));
 	}
 
 	va_list args;
@@ -206,18 +206,18 @@ Menu::Menu(Logger& logger, TimeProvider &tp, Lcd &lcd, Button &btnUp, Button &bt
 	init();
 
 	if (isLogEnabled()) {
-		log("Leaving Menu::Menu");
+		log(F("Leaving Menu::Menu"));
 	}
 }
 
 Menu::~Menu() {
 	if (isLogEnabled()) {
-		log("Entering Menu::~Menu");
+		log(F("Entering Menu::~Menu"));
 	}
 
 	if (numberOfCallbacks > 0) {
 		if (isLogEnabled()) {
-			log("Deleting callbacks");
+			log(F("Deleting callbacks"));
 		}
 
 		for (int i = 0; i < numberOfCallbacks; i++) {
@@ -227,27 +227,27 @@ Menu::~Menu() {
 	}
 
 	if (isLogEnabled()) {
-		log("Leaving Menu::!Menu");
+		log(F("Leaving Menu::!Menu"));
 	}
 }
 
 void Menu::waitUntilButtonIsUnpressed(Button& btn) {
 	if (isLogEnabled()) {
-		log("Entering Menu::waitUntilButtonIsUnpressed()");
+		log(F("Entering Menu::waitUntilButtonIsUnpressed()"));
 	}
 	while (btn.isPressed()) {
 		delay(200);
-		log(".", false);
+		log(F("."), false);
 	}
 	if (isLogEnabled()) {
-		log(".");
-		log("Leaving Menu::waitUntilButtonIsUnpressed()");
+		log(F("."));
+		log(F("Leaving Menu::waitUntilButtonIsUnpressed()"));
 	}
 }
 
 void Menu::show() {
 	if (isLogEnabled()) {
-		log("Entering Menu::show()");
+		log(F("Entering Menu::show()"));
 	}
 	init();
 
@@ -265,7 +265,7 @@ void Menu::show() {
 			buttonUpDownClicked(1);
 		} else if (internals.btnMenu.uniquePress() && internals.itemsCallbacks != NULL && internals.itemsCallbacks[internals.currentIndex] != NULL) {
 			if (isLogEnabled()) {
-				log("Selecting menu index ", false);
+				log(F("Selecting menu index "), false);
 				logInt(internals.currentIndex);
 			}
 			waitUntilButtonIsUnpressed(internals.btnMenu);
@@ -275,14 +275,14 @@ void Menu::show() {
 		} else if (t.elapsedSeconds() > internals.timeoutSeconds) {
 			exitFlag = true;
 			if (isLogEnabled()) {
-				log("Menu timeout");
+				log(F("Menu timeout"));
 			}
 		}
 		if (isLogEnabled()) {
 			if (exitFlag) {
-				log("exitFlag = true, currentIndex = ", false);
+				log(F("exitFlag = true, currentIndex = "), false);
 			} else {
-				log("exitFlag = false, currentIndex = ", false);
+				log(F("exitFlag = false, currentIndex = "), false);
 			}
 			logInt(internals.currentIndex);
 		}
@@ -290,6 +290,6 @@ void Menu::show() {
 	}
 
 	if (isLogEnabled()) {
-		log("Leaving Menu::show()");
+		log(F("Leaving Menu::show()"));
 	}
 }

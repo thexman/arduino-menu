@@ -29,7 +29,7 @@ public:
 
 class TimeSavePoint {
 protected:
-	int time;
+	unsigned long time;
 	TimeProvider& timeProvider;
 public:
 	TimeSavePoint(TimeProvider& tp);
