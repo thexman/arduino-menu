@@ -2,29 +2,29 @@
 #              Classes              #
 #####################################
 
-TimeProvider KEYWORD1
-TimeSavePoint KEYWORD1
-Lcd KEYWORD1
-MenuCallback KEYWORD1
-MenuInternals KEYWORD1
-ExitMenuCallback KEYWORD1
-SimpleMenuCallback KEYWORD1
-Menu KEYWORD1
+TimeProvider	KEYWORD1
+TimeSavePoint	KEYWORD1
+Lcd	KEYWORD1
+MenuCallback	KEYWORD1
+MenuInternals	KEYWORD1
+ExitMenuCallback	KEYWORD1
+SimpleMenuCallback	KEYWORD1
+Menu	KEYWORD1
 
 #####################################
 #              Methods              #
 #####################################
 
 
-getTime KEYWORD2
-save KEYWORD2
-elapsedMs KEYWORD2
-elapsedSeconds KEYWORD2
-animate KEYWORD2
-showString KEYWORD2
-execute KEYWORD2
-init KEYWORD2
-showCurrentMenu KEYWORD2
-buttonUpDownClicked KEYWORD2
-show KEYWORD2
+getTime	KEYWORD2
+save	KEYWORD2
+elapsedMs	KEYWORD2
+elapsedSeconds	KEYWORD2
+animate	KEYWORD2
+showString	KEYWORD2
+execute	KEYWORD2
+init	KEYWORD2
+showCurrentMenu	KEYWORD2
+buttonUpDownClicked	KEYWORD2
+show	KEYWORD2
 
